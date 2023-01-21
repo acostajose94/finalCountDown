@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/plantilla :: head">
+</head>
+<body>
+<header th:replace="plantilla/plantilla :: header">
+</header>
+<div class="container">
+    <h1 th:text="${titulo}"></h1>
+
+    <a class="btn btn-primary btn-sm" th:href="@{/crud/crear}"
+       th:text="'Nuevo Vehiculo'" title="Crear Nuevo Registro"></a>
+
+    <table class="table">
+        <thead class="thead-light">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">RUC</th>
+            <th scope="col">RAZON_SOCIAL</th>
+            <th scope="col">DIRECCION</th>
+            <th scope="col">DISTRITO</th>
+            <th scope="col">TELEFONO</th>
+            <th scope="col">CORREO</th>
+            <th scope="col">PAGINA_WEB</th>
+            <th scope="col">EDITAR</th>
+            <th scope="col">ELIMINAR</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="pr:${proveedores}">
+            <th scope="row" th:text="${pr.id}"></th>
+            <td th:text="${pr.ruc}"></td>
+            <td th:text="${pr.razonsocial}"></td>
+            <td th:text="${pr.direccion}"></td>
+            <td th:text="${pr.distrito}"></td>
+            <td th:text="${pr.telefono}"></td>
+            <td th:text="${pr.correo}"></td>
+            <td th:text="${pr.paginaweb}"></td>
+            <td><a class="btn btn-success btn-sn"
+                   th:href="@{/crud/editar/} + ${pr.id}" th:text="'Editar'"
+                   title="Editar proveedor."></a></td>
+            <td><a class="btn btn-danger btn-sn"
+                   th:href="@{/crud/eliminar/} + ${pr.id}" th:text="'Eliminar'"
+                   title="Eliminar proveedor."
+                   onclick="return confirm('Está seguro de eliminar el registro?');"></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<footer th:replace="plantilla/plantilla :: footer">
+</footer>
+</body>
+</html>

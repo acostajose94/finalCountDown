@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/plantilla :: head">
+</head>
+<body>
+<header th:replace="plantilla/plantilla :: header"></header>
+
+<div class="container">
+    <div class="card bg-light">
+        <div class="card-header bg-dark text-white" th:text="${titulo}"></div>
+        <div class="card-body">
+            <form th:action="@{/crud/save}" th:object="${proveedor}" method="post">
+                <br>
+
+                <div class="form-group row mb-2">
+                    <input type="hidden" th:field="*{id}">
+                    <label class="col-md-2" for="ruc">Ruc:</label>
+                    <input type="text" th:field="*{ruc}" class="form-control-sm col-md-6" id="ruc"
+                        placeholder="Numero de RUC">
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('ruc')}"
+                        th:errors="*{ruc}">
+                    </small>
+                </div>
+
+                <div class="form-group row mb-2">
+                    <label class="col-md-2" for="razonsocial">Razon Social:</label>
+                    <input type="text" th:field="*{razonsocial}" class="form-control-sm col-md-6" id="razonsocial"
+                           placeholder="Razon Social del Proveedor">
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('razonsocial')}"
+                           th:errors="*{razonsocial}">
+                    </small>
+                </div>
+
+                <div class="form-group row mb-2">
+                    <label class="col-md-2" for="direccion">Direccion:</label>
+                    <input type="text" th:field="*{direccion}" class="form-control-sm col-md-6" id="direccion"
+                           placeholder="Direecion del Proveedor">
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('direccion')}"
+                           th:errors="*{direccion}">
+                    </small>
+                </div>
+
+                <div class="form-group row mb-2">
+                    <label class="col-md-2" for="distrito">Distrito:</label>
+                    <input type="text" th:field="*{distrito}" class="form-control-sm col-md-6" id="distrito"
+                           placeholder="Distrito del Proveedor">
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('distrito')}"
+                           th:errors="*{distrito}">
+                    </small>
+                </div>
+
+                <div class="form-group row mb-2">
+                    <label class="col-md-2" for="telefono">Telefono:</label>
+                    <input type="text" th:field="*{telefono}" class="form-control-sm col-md-6" id="telefono"
+                           placeholder="Telefono del Proveedor">
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('telefono')}"
+                           th:errors="*{telefono}">
+                    </small>
+                </div>
+                <div class="form-group row mb-2">
+                    <label class="col-md-2" for="correo">Correo:</label>
+                    <input type="email" th:field="*{correo}" class="form-control-sm col-md-6" id="correo"
+                           placeholder="Correo del Proveedor">
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('correo')}"
+                           th:errors="*{correo}">
+                    </small>
+                </div>
+                <div class="form-group row mb-2">
+                    <label class="col-md-2" for="paginaweb">Pagina Web:</label>
+                    <input type="text" th:field="*{paginaweb}" class="form-control-sm col-md-6" id="paginaweb"
+                           placeholder="Pagina web del Proveedor">
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('paginaweb')}"
+                           th:errors="*{paginaweb}">
+                    </small>
+                </div>
+                <div class="card-footer bg-dark">
+                    <input type="submit" class="btn btn-primary btn-sm" value="Guardar">
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+<footer th:replace="plantilla/plantilla :: footer"></footer>
+</body>
+</html>
+
+
+
+
